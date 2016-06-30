@@ -1,0 +1,39 @@
+<html lang="en" ng-app="phonecatApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AngularJS Animation</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.css" charset="utf-8">
+  <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css" charset="utf-8">
+  <link rel="stylesheet" href="css/animation.css" media="screen" title="no title" charset="utf-8">
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.3.js"></script>
+  <!-- angular and routing -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+  <!-- angularjs animation script -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+</head>
+<body ng-controller="PhoneListController">
+  <!-- <ul>
+    <li ng-repeat="phone in phones">
+      <span>{{phone.name}}</span>
+      <p>{{phone.snippet}}</p>
+    </li>
+  </ul> -->
+  <ul class="phones">
+  <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp"
+      class="thumbnail phone-list-item">
+    <a href="#!/phones/{{phone.id}}" class="thumb">
+      <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
+    </a>
+    <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+    <p>{{phone.snippet}}</p>
+  </li>
+</ul>
+ </body>
+<script src="controller/phone.js"></script>
+</html>
